@@ -77,7 +77,8 @@ module DroneChef
       puts 'Verifying required arguments'
       fail 'No build data found' if @plugin_args.nil?
       fail 'Username required' unless @plugin_args.key? 'user'
-      fail 'Key required' unless @plugin_args.key? 'key'
+      fail 'Key required (not provided)' unless @plugin_args.key? 'key'
+      fail 'Key required (empty)' if key.empty?
       fail 'Server URL required' unless @plugin_args.key? 'server'
     end
 
